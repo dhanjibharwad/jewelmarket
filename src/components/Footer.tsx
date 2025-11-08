@@ -1,7 +1,7 @@
 // src/components/Footer.tsx
 
 import React from 'react';
-import { Phone, MessageCircle, Smartphone, Mail } from "lucide-react";
+import { Phone, MessageCircle, Mail } from "lucide-react";
 
 const linkClasses = 'text-black hover:text-amber-800 transition-colors duration-200';
 const titleClasses = 'text-base font-semibold text-black mb-4 uppercase tracking-wider';
