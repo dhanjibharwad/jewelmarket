@@ -7,17 +7,14 @@ interface Category {
 }
 
 // Data structure mimicking the categories in the image
-// NOTE: Please replace these placeholder image URLs with your actual image paths.
 const categories: Category[] = [
   { name: 'EARRINGS', imageUrl: '/images/jewell.jpg' },
   { name: 'FINGER RINGS', imageUrl: 'https://placehold.co/400x400/e0d0c0/333333?text=RINGS' },
   { name: 'PENDANTS', imageUrl: 'https://placehold.co/400x400/d0d0f0/333333?text=PENDANTS' },
   { name: 'MANGALSUTRA', imageUrl: '/images/gold.jpg' },
-  // Assuming the next row has Bracelets, Bangles, and Chains
   { name: 'BRACELETS', imageUrl: 'https://placehold.co/400x400/c0e0c0/333333?text=BRACELETS' },
   { name: 'BANGLES', imageUrl: 'https://placehold.co/400x400/b0b0a0/333333?text=BANGLES' },
   { name: 'CHAINS', imageUrl: 'https://placehold.co/400x400/f0e0d0/333333?text=CHAINS' },
-  // The last spot is the special '10+' card
 ];
 
 // Helper component for a single category card
@@ -25,26 +22,36 @@ const CategoryCard: React.FC<{ category: Category }> = ({ category }) => {
   return (
     <a 
       href={`/shop/${category.name.toLowerCase().replace(' ', '-')}`}
-      // 'rounded-md' applies the radius to the entire card container
-      className="block bg-white overflow-hidden rounded-md transition-opacity duration-300 hover:opacity-90"
+      className="group block bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
     >
-      {/* Added rounded-t-md here so the image respects the top corners of the parent 'a' tag */}
-      <div className="aspect-square w-full rounded-t-md overflow-hidden">
-        {/* Image placeholder */}
+      {/* Image Container with Overlay */}
+      <div className="aspect-square w-full relative overflow-hidden">
         <img 
           src={category.imageUrl} 
           alt={category.name} 
-          className="w-full h-full object-cover" 
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
           onError={(e) => {
             const target = e.target as HTMLImageElement;
             target.onerror = null; 
             target.src="https://placehold.co/400x400/f0f0f0/333333?text=Image+Missing";
           }}
         />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        
+        {/* Hover Text */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span className="text-white font-semibold text-lg px-4 py-2 border-2 border-white rounded-lg backdrop-blur-sm">
+            Shop Now
+          </span>
+        </div>
       </div>
-      {/* Title is centered and styled as per the image */}
-      <div className="py-4 text-center">
-        <p className="text-black font-medium text-sm tracking-widest">{category.name}</p>
+      
+      {/* Title Section */}
+      <div className="py-5 px-4 bg-white group-hover:bg-amber-800 transition-colors duration-300">
+        <p className="text-black group-hover:text-white font-semibold text-sm tracking-[0.15em] transition-colors duration-300 text-center">
+          {category.name}
+        </p>
       </div>
     </a>
   );
@@ -52,25 +59,25 @@ const CategoryCard: React.FC<{ category: Category }> = ({ category }) => {
 
 const CategoryGrid: React.FC = () => {
   return (
-    <section className="bg-white py-12 md:py-16 lg:py-24 font-['Inter']">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-gradient-to-b from-white to-gray-50 py-12 md:py-16 lg:py-24 font-sans">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
-        <div className="text-center mb-10 md:mb-16">
-          {/* Header using amber-800 for the color and a serif font for style matching */}
-          <h2 
-            className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-black mb-1" 
-            style={{ color: '#92400E' }} // Exact hex code for amber-800
-          >
-            Find Your Perfect Match
+        <div className="text-center mb-12 md:mb-20">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-3 tracking-tight">
+            Find Your Perfect <span className="text-amber-800">Match</span>
           </h2>
-          <p className="text-lg md:text-xl text-black opacity-80">
-            Shop by Categories
-          </p>
+          <div className="flex items-center justify-center gap-3 mt-4">
+            <div className="h-0.5 w-12 bg-amber-800"></div>
+            <p className="text-lg md:text-xl text-gray-600 font-light">
+              Shop by Categories
+            </p>
+            <div className="h-0.5 w-12 bg-amber-800"></div>
+          </div>
         </div>
 
-        {/* Categories Grid (4 columns on desktop) */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        {/* Categories Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-7">
           
           {/* Render the standard category cards */}
           {categories.slice(0, 7).map((category, index) => (
@@ -78,17 +85,29 @@ const CategoryGrid: React.FC = () => {
           ))}
 
           {/* The Special "10+ Categories" Card */}
-          {/* Also added 'rounded-md' here for consistency */}
-          <div className="aspect-square w-full flex items-center justify-center bg-white border border-gray-200 rounded-md">
-            <a href="/shop/all-categories" className="text-center p-4 block">
-              <p className="text-4xl md:text-5xl font-bold text-amber-800 mb-2">
+          <a 
+            href="/shop/all-categories" 
+            className="group aspect-square w-full flex flex-col items-center justify-center bg-gradient-to-br from-amber-800 to-amber-900 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden"
+          >
+            {/* Decorative Background Pattern */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 left-0 w-32 h-32 bg-white rounded-full -translate-x-16 -translate-y-16"></div>
+              <div className="absolute bottom-0 right-0 w-40 h-40 bg-white rounded-full translate-x-20 translate-y-20"></div>
+            </div>
+            
+            <div className="text-center p-6 relative z-10">
+              <p className="text-6xl md:text-7xl font-bold text-white mb-3 group-hover:scale-110 transition-transform duration-300">
                 10+
               </p>
-              <p className="text-black text-sm md:text-base">
-                Categories to choose from
+              <div className="h-1 w-16 bg-white mx-auto mb-3 rounded-full"></div>
+              <p className="text-white text-base md:text-lg font-medium tracking-wide">
+                Categories to<br />choose from
               </p>
-            </a>
-          </div>
+              <div className="mt-4 inline-block border-2 border-white text-white px-4 py-2 rounded-lg text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Explore All
+              </div>
+            </div>
+          </a>
 
         </div>
       </div>
