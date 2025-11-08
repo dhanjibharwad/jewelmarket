@@ -14,7 +14,7 @@ const HeroCarousel: React.FC = () => {
   const slides: Slide[] = [
     {
       id: 1,
-      image: '/images/g21.jpg', // Add your image path here
+      image: '/images/g1.png', // Add your image path here
       alt: 'Banner 1'
     },
     {
