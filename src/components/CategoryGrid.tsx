@@ -64,9 +64,9 @@ const CategoryGrid: React.FC = () => {
         
         {/* Header Section */}
         <div className="text-center mb-12 md:mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-3 tracking-tight">
-            Find Your Perfect <span className="text-amber-800">Match</span>
-          </h2>
+           <h1 className="text-4xl md:text-5xl font-serif text-amber-800 mb-2">
+            Find Your Perfect Match
+          </h1>
           <div className="flex items-center justify-center gap-3 mt-4">
             <div className="h-0.5 w-12 bg-amber-800"></div>
             <p className="text-lg md:text-xl text-gray-600 font-light">
