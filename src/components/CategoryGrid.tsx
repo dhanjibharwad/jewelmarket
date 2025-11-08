@@ -8,13 +8,13 @@ interface Category {
 
 // Data structure mimicking the categories in the image
 const categories: Category[] = [
-  { name: 'EARRINGS', imageUrl: '/images/jewell.jpg' },
-  { name: 'FINGER RINGS', imageUrl: 'https://placehold.co/400x400/e0d0c0/333333?text=RINGS' },
-  { name: 'PENDANTS', imageUrl: 'https://placehold.co/400x400/d0d0f0/333333?text=PENDANTS' },
+  { name: 'EARRINGS', imageUrl: 'https://cdn.pixabay.com/photo/2019/02/11/19/53/jewel-3990596_640.jpg' },
+  { name: 'FINGER RINGS', imageUrl: '/images/jewell.jpg' },
+  { name: 'PENDANTS', imageUrl: 'https://cdn.pixabay.com/photo/2015/02/06/03/27/jewelry-625723_1280.jpg' },
   { name: 'MANGALSUTRA', imageUrl: '/images/gold.jpg' },
-  { name: 'BRACELETS', imageUrl: 'https://placehold.co/400x400/c0e0c0/333333?text=BRACELETS' },
-  { name: 'BANGLES', imageUrl: 'https://placehold.co/400x400/b0b0a0/333333?text=BANGLES' },
-  { name: 'CHAINS', imageUrl: 'https://placehold.co/400x400/f0e0d0/333333?text=CHAINS' },
+  { name: 'BRACELETS', imageUrl: 'https://cdn.pixabay.com/photo/2018/11/02/16/50/gold-jewelry-3790542_1280.jpg' },
+  { name: 'BANGLES', imageUrl: 'https://cdn.pixabay.com/photo/2016/02/02/15/55/jewellery-1175535_1280.jpg' },
+  { name: 'CHAINS', imageUrl: 'https://cdn.pixabay.com/photo/2017/05/25/02/25/gold-2342070_640.jpg' },
 ];
 
 // Helper component for a single category card

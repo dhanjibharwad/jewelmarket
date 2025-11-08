@@ -14,17 +14,17 @@ const HeroCarousel: React.FC = () => {
   const slides: Slide[] = [
     {
       id: 1,
-      image: '/images/i1.jpg', // Add your image path here
+      image: '/images/wedd.jpg', // Add your image path here
       alt: 'Banner 1'
     },
     {
       id: 2,
-      image: '/images/jewell.jpg', // Add your image path here
+      image: '/images/off.jpg', // Add your image path here
       alt: 'Banner 2'
     },
     {
       id: 3,
-      image: '/images/g2.jpg', // Add your image path here
+      image: '/images/i1.jpg', // Add your image path here
       alt: 'Banner 3'
     },
     {
@@ -99,8 +99,8 @@ const HeroCarousel: React.FC = () => {
             key={index}
             onClick={() => goToSlide(index)}
             className={`transition-all rotate-45 ${index === currentSlide
-                ? 'w-3 h-3 bg-white scale-125'
-                : 'w-3 h-3 bg-white/50 hover:bg-white/75'
+                ? 'w-2 h-2 bg-white scale-125'
+                : 'w-2 h-2 bg-white/50 hover:bg-white/75'
               }`}
             aria-label={`Slide ${index + 1}`}
           />
