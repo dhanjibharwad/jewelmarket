@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
               <li><a href="#" className={linkClasses}>Free shipping</a></li>
               <li><a href="#" className={linkClasses}>Postcards</a></li>
               <li><a href="#" className={linkClasses}>Gold exchange</a></li>
-              <li><a href="#" className={linkClasses}>#Wearyourwins</a></li>
+              <li><a href="#" className={linkClasses}>Wearyourwins</a></li>
               <li><a href="#" className={linkClasses}>Gift cards</a></li>
               <li><a href="#" className={linkClasses}>Digital gold</a></li>
             </ul>
