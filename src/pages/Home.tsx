@@ -6,11 +6,16 @@ import JewelAssurance from "@/components/Jewelassurance";
 import BusinessConsultationSection from "@/components/Bsol";
 import TrustSection from "@/components/Trustsection";
 import JewelryCategories from "@/components/JewelryCategories";
+import GiftingCardsDemo from "@/components/Giftcard";
+import PopupDemo from "@/components/Popup";
+import JewelryShowcase from "@/components/Collection";
 
 
 const Home: React.FC = () => {
   return (
     <main className="flex flex-col">
+
+        <PopupDemo/>
      
         <HeroCarousel />
         <CategoryGrid />
@@ -19,6 +24,9 @@ const Home: React.FC = () => {
         <BusinessConsultationSection />
         <TrustSection />
         <JewelryCategories />
+        <GiftingCardsDemo />
+        <JewelryShowcase/>
+        
     </main>
   );
 };
