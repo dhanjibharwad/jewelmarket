@@ -69,49 +69,49 @@ ProductCard.displayName = 'ProductCard';
 const JewelryShowcase = () => {
   const products = [
     {
-      image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&h=800&fit=crop',
+      image: 'https://i.pinimg.com/736x/bd/0f/e2/bd0fe22cf12840dc1bbc289e2e01457b.jpg',
       thumbnail: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=100&h=100&fit=crop',
       title: 'Cira Antique Necklace Set',
       price: 6149
     },
     {
-      image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=800&fit=crop',
+      image: 'https://sudathi.com/cdn/shop/files/4513S117_6.JPG?v=1756406363&width=1500',
       thumbnail: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=100&h=100&fit=crop',
       title: 'Niladri Antique Necklace Set',
       price: 4759
     },
     {
-      image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=800&fit=crop',
+      image: 'https://m.media-amazon.com/images/I/71g-Q8y2BzL._AC_UY1100_.jpg',
       thumbnail: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=100&h=100&fit=crop',
       title: 'Drisana Antique Choker Set',
       price: 5159
     },
     {
-      image: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=600&h=800&fit=crop',
+      image: 'https://blog.southindiajewels.com/wp-content/uploads/2019/05/jewellery-for-red-silk-sarees-10.jpg',
       thumbnail: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=100&h=100&fit=crop',
       title: 'Parag Antique Coin Necklace Set',
       price: 2348
     },
      {
-      image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&h=800&fit=crop',
+      image: 'https://koranm.com/cdn/shop/files/KO-61719-Cream-3.jpg?v=1754389795&width=1080',
       thumbnail: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=100&h=100&fit=crop',
       title: 'Cira Antique Necklace Set',
       price: 6149
     },
     {
-      image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=800&fit=crop',
+      image: 'https://i.pinimg.com/736x/49/1b/09/491b09db8325a9ba3e2537b1ce55ba16.jpg',
       thumbnail: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=100&h=100&fit=crop',
       title: 'Niladri Antique Necklace Set',
       price: 4759
     },
     {
-      image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=800&fit=crop',
+      image: 'https://ryanchristiandesigns.com/cdn/shop/articles/S05_0704-2-min_1.jpg?v=1722170587&width=2048',
       thumbnail: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=100&h=100&fit=crop',
       title: 'Drisana Antique Choker Set',
       price: 5159
     },
     {
-      image: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=600&h=800&fit=crop',
+      image: 'https://m.media-amazon.com/images/I/810Xx-oKTKL._AC_UY1100_.jpg',
       thumbnail: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=100&h=100&fit=crop',
       title: 'Parag Antique Coin Necklace Set',
       price: 2348
