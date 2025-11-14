@@ -9,6 +9,9 @@ import JewelryCategories from "@/components/JewelryCategories";
 import GiftingCardsDemo from "@/components/Giftcard";
 import PopupDemo from "@/components/Popup";
 import JewelryShowcase from "@/components/Collection";
+import JewelryCards from "@/components/Bigcard";
+import JewelryCollections from "@/components/Trendingcollection";
+import TestimonialSection from "@/components/testimonial";
 
 
 const Home: React.FC = () => {
@@ -26,6 +29,9 @@ const Home: React.FC = () => {
         <JewelryCategories />
         <GiftingCardsDemo />
         <JewelryShowcase/>
+        <JewelryCards/>
+        <JewelryCollections/>
+        <TestimonialSection/>
         
     </main>
   );
