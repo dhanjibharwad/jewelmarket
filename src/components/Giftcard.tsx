@@ -11,7 +11,7 @@ const GiftingCard: React.FC<GiftingCardProps> = ({
   title,
   imageUrl,
   accentColor = '#D4AF37',
-  ribbonColor = '#FFB6C1'
+  // ribbonColor = '#FFB6C1'
 }) => {
   return (
     <div className="relative w-72 h-96 group cursor-pointer">
