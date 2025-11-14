@@ -19,7 +19,7 @@ const HeroCarousel: React.FC = () => {
     },
     {
       id: 2,
-      image: '/images/off.jpg', // Add your image path here
+      image: '/images/wedd3.png', // Add your image path here
       alt: 'Banner 2'
     },
     {
@@ -69,6 +69,7 @@ const HeroCarousel: React.FC = () => {
               src={slide.image}
               alt={slide.alt}
               className="w-full h-full object-cover"
+          
             />
           </div>
         ))}

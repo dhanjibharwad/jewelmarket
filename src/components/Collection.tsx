@@ -21,12 +21,12 @@ const ProductCard = memo<ProductCardProps>(({ image, title, price, thumbnail }) 
         />
         
         {/* Search Icon Overlay */}
-        <button
+        {/* <button
           className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/80 text-white transition-colors hover:bg-black"
           aria-label="View product details"
         >
           <Search className="h-5 w-5" />
-        </button>
+        </button> */}
       </div>
 
       {/* Product Info Container */}
@@ -53,7 +53,7 @@ const ProductCard = memo<ProductCardProps>(({ image, title, price, thumbnail }) 
 
         {/* Quick View Button */}
         <button
-          className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-white shadow-lg transition-all hover:scale-105 hover:bg-black hover:shadow-xl active:scale-95"
+          className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-amber-800 text-white shadow-lg transition-all hover:scale-105 hover:bg-black hover:shadow-xl active:scale-95"
           aria-label="Quick view"
         >
           <Search className="h-4.5 w-4.5" strokeWidth={2.5} />
@@ -115,6 +115,30 @@ const JewelryShowcase = () => {
       thumbnail: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=100&h=100&fit=crop',
       title: 'Parag Antique Coin Necklace Set',
       price: 2348
+    },
+    {
+      image: 'https://i.pinimg.com/736x/bd/0f/e2/bd0fe22cf12840dc1bbc289e2e01457b.jpg',
+      thumbnail: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=100&h=100&fit=crop',
+      title: 'Cira Antique Necklace Set',
+      price: 6149
+    },
+    {
+      image: 'https://sudathi.com/cdn/shop/files/4513S117_6.JPG?v=1756406363&width=1500',
+      thumbnail: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=100&h=100&fit=crop',
+      title: 'Niladri Antique Necklace Set',
+      price: 4759
+    },
+    {
+      image: 'https://m.media-amazon.com/images/I/71g-Q8y2BzL._AC_UY1100_.jpg',
+      thumbnail: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=100&h=100&fit=crop',
+      title: 'Drisana Antique Choker Set',
+      price: 5159
+    },
+    {
+      image: 'https://blog.southindiajewels.com/wp-content/uploads/2019/05/jewellery-for-red-silk-sarees-10.jpg',
+      thumbnail: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=100&h=100&fit=crop',
+      title: 'Parag Antique Coin Necklace Set',
+      price: 2348
     }
   ];
 
@@ -122,14 +146,23 @@ const JewelryShowcase = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-8">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className="mb-8 text-center">
+        {/* <div className="mb-8 text-center">
           <p className="mb-2 text-sm font-medium text-gray-600">
             Curated specially for you
           </p>
           <h1 className="text-3xl font-bold text-gray-900">
             Special at Jewel
           </h1>
-        </div>
+        </div> */}
+        {/* Header */}
+      <header className="text-center mb-12">
+        <h1 className="text-4xl md:text-5xl font-serif text-amber-800 mb-2">
+          Curated specially for you
+        </h1>
+        <p className="text-base text-slate-500 font-light">
+          Special at Jewel
+        </p>
+      </header>
 
         {/* Product Grid */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
