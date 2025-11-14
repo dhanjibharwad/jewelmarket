@@ -9,15 +9,15 @@ interface CollectionCard {
 const collections: CollectionCard[] = [
   { id: 1, title: 'DASHAVATAR', image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=300&fit=crop' },
   { id: 2, title: 'PIQUE-À-JOUR', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&h=300&fit=crop' },
-  { id: 3, title: 'ANANT', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&h=300&fit=crop' },
-  { id: 4, title: 'MANGALSUTRA', image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&h=300&fit=crop' },
+  { id: 3, title: 'ANANT', image: 'https://www.giva.co/cdn/shop/files/PD061_2.jpg?v=1712928583&width=1946' },
+  { id: 4, title: 'MANGALSUTRA', image: 'https://manubhai.in/SocialMedia/post_artworks/20022018085140IMG_28191.jpg' },
   { id: 5, title: 'MIROSA', image: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=400&h=300&fit=crop' },
   { id: 6, title: 'EXPRESSO', image: 'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=400&h=300&fit=crop' },
-  { id: 7, title: 'BANDHAN', image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=300&fit=crop' },
+  { id: 7, title: 'BANDHAN', image: 'https://pannadiamondworld.s3.amazonaws.com/images/Panna-Diamond-World-LLP/coverblog_2.jpg' },
   { id: 8, title: 'AMOUR', image: 'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&h=300&fit=crop' },
   { id: 9, title: 'INITIALS', image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=300&fit=crop' },
   { id: 10, title: 'TWINNING', image: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=400&h=300&fit=crop' },
-  { id: 11, title: 'INAYAT', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&h=300&fit=crop' },
+  { id: 11, title: 'INAYAT', image: 'https://sukkhi.com/cdn/shop/products/N73718_MIXBG2_2000x.jpg?v=1551866942' },
   { id: 12, title: 'LA DANZA', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&h=300&fit=crop' },
 ];
 

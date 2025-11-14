@@ -99,7 +99,7 @@ const JewelryShowcase = () => {
       price: 6149
     },
     {
-      image: 'https://i.pinimg.com/736x/49/1b/09/491b09db8325a9ba3e2537b1ce55ba16.jpg',
+      image: 'https://assets.gqindia.com/photos/66d590e9b3892e5ffb331285/2:3/w_720,h_1080,c_limit/MensJewellery%20(1).jpg',
       thumbnail: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=100&h=100&fit=crop',
       title: 'Niladri Antique Necklace Set',
       price: 4759
