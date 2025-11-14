@@ -134,11 +134,11 @@ const TestimonialSection = () => {
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
-            <div className="flex gap-6" style={{ width: 'max-content' }}>
+            <div className="flex gap-6 items-start" style={{ width: 'max-content' }}>
               {duplicatedTestimonials.map((testimonial, idx) => (
                 <div
                   key={`${testimonial.id}-${idx}`}
-                  className="p-6 relative flex-shrink-0 w-80"
+                  className="p-6 relative flex-shrink-0 w-80 h-80 flex flex-col"
                 >
                   {/* Quote Icon */}
                   <div className="absolute top-6 left-6 text-gray-300 text-6xl leading-none font-serif">
@@ -146,18 +146,19 @@ const TestimonialSection = () => {
                   </div>
 
                   {/* Testimonial Text */}
-                  <div className="pt-8 pb-6">
-                    <p className="text-gray-600 italic text-sm leading-relaxed">
+                  <div className="pt-8 pb-6 flex-1">
+                    <p className="text-gray-600 italic text-sm leading-relaxed h-20 overflow-hidden">
                       {testimonial.text}
                     </p>
                   </div>
 
                   {/* Product Image Placeholder */}
-                  <div className="flex justify-center mb-4">
-                    
-                      {/* <div className="w-16 h-16 bg-gray-200 rounded"></div> */}
-                      <img src={testimonial.image} alt="Product" className="w-16 h-16 rounded-lg" />
-                    
+                  <div className="flex justify-center mb-4 mt-auto">
+                    <img 
+                      src={testimonial.image} 
+                      alt="Product" 
+                      className="w-16 h-16 rounded-lg object-cover" 
+                    />
                   </div>
 
                   {/* Customer Info */}
