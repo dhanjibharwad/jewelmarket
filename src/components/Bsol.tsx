@@ -11,27 +11,39 @@ const Feature: React.FC<FeatureProps> = ({ icon, title }) => (
     <div className="text-amber-800 flex-shrink-0">
       {icon}
     </div>
-    <p className="text-white text-sm md:text-base">{title}</p>
+    <p className="text-gray-900 text-sm md:text-base">{title}</p>
   </div>
 );
 
 const BusinessConsultationSection: React.FC = () => {
   return (
-    <section className="bg-gradient-to-br from-[#0a1628] via-[#0f2744] to-[#1a3a5c] py-16 px-4 md:px-8 lg:px-16">
+    // <section className="bg-gradient-to-br from-[#0a1628] via-[#0f2744] to-[#1a3a5c] py-16 px-4 md:px-8 lg:px-16">
+    <section
+  className="relative py-16 px-4 md:px-8 lg:px-16 bg-[#fbe9d5] overflow-hidden"
+>
+  <div
+    className="absolute inset-0 opacity-35"
+    style={{
+      backgroundImage:
+        "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 512 512'%3E%3Cpath fill='%23e4c6b0' d='M256 32c-22 42-58 63-103 63-5 0-10 0-15-1 1 63 44 116 118 128-78 14-118 68-118 128 5-1 10-1 15-1 45 0 81 21 103 63 22-42 58-63 103-63 5 0 10 0 15 1-1-60-40-114-118-128 74-12 117-65 118-128-5 1-10 1-15 1-45 0-81-21-103-63z'/%3E%3C/svg%3E\")",
+      backgroundSize: "80px 120px",
+    }}
+  />
+
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6">
-            <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
+            <h2 className="text-amber-800 text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
               Need a professional Jeweler consultation? Look no further. We are here to help!
             </h2>
             
-            <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+            <p className="text-gray-900 text-base md:text-lg leading-relaxed">
              We offer expert advice, personalized guidance, and elegant solutions to help you choose the perfect jewellery that matches your style, occasion, and budget. {/* We offer a professional advice, guidance and actionable solutions to businesses experiencing issues they can't deal with in-house. */}
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex flex-wrap gap-4 pt-3">
               <button className="bg-amber-800 hover:bg-amber-600 text-black font-semibold px-8 py-3 rounded transition-colors duration-200">
                 Get free consultation
               </button>

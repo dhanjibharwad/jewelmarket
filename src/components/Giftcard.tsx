@@ -38,7 +38,7 @@ const GiftingCard: React.FC<GiftingCardProps> = ({ title, imageUrl, bgLight }) =
                 Perfect Gifts for
               </p>
             </div>
-            <h3 className="text-white text-5xl font-bold tracking-wider uppercase"
+            <h3 className="text-white text-3xl font-bold tracking-wider uppercase"
               style={{ textShadow: '3px 3px 6px rgba(0,0,0,0.4)' }}>
               {title}
             </h3>
