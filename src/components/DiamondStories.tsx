@@ -150,7 +150,7 @@ const VideoCarousel = () => {
                   className={`absolute transition-all duration-500 ease-out ${style.scale} ${style.translate} ${style.opacity} ${style.zIndex} ${style.blur} ${
                     !isCenter && 'cursor-pointer hover:scale-105'
                   }`}
-                  style={{ width: '280px' }}
+                  style={{ width: '350px' }}
                   onClick={() => !isCenter && goToSlide((currentIndex + idx - 2 + CARDS_DATA.length) % CARDS_DATA.length)}
                 >
                   <div className={`relative ${card.bgColor} backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl`}>
