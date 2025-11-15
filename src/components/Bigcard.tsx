@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect, useCallback, memo, useMemo } from 'react';
 
+// Interface for the card data
 interface Card {
   id: number;
   title: string;
@@ -7,10 +8,12 @@ interface Card {
   rotation: string;
 }
 
+// --- Constants ---
 const SCROLL_SPEED = 0.8;
 const DUPLICATE_COUNT = 3;
-const CARD_OVERLAP = -120;
+const CARD_OVERLAP = -120; // Overlap in pixels
 
+// Readonly array for immutable card data
 const CARDS: readonly Card[] = [
   { id: 1, title: 'DAILY WEAR', image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&q=80', rotation: '-rotate-6' },
   { id: 2, title: 'OFFICE WEAR', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1200&q=80', rotation: 'rotate-0' },
@@ -19,14 +22,21 @@ const CARDS: readonly Card[] = [
   { id: 5, title: 'BRIDAL COLLECTION', image: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=1200&q=80', rotation: 'rotate-5' }
 ] as const;
 
+// --- Card Item Component ---
+// Memoized to prevent unnecessary re-renders
 const CardItem = memo(({ card, index, isFirst }: { card: Card; index: number; isFirst: boolean }) => (
   <div
     className={`relative flex-shrink-0 group cursor-pointer transition-all duration-500 hover:scale-110 hover:z-50 ${index === 1 ? 'z-30' : 'z-10'}`}
     style={{ marginLeft: isFirst ? '0' : `${CARD_OVERLAP}px` }}
   >
-    <div 
-      className={`relative w-[340px] md:w-[420px] h-[480px] md:h-[600px] bg-white shadow-2xl ${card.rotation} transition-all duration-500 group-hover:rotate-0 group-hover:shadow-[0_30px_80px_rgba(0,0,0,0.25)]`}
-      style={{ boxShadow: '0 20px 60px rgba(0,0,0,0.15), 0 0 40px rgba(0,0,0,0.08)' }}
+    {/* --- CHANGES ---
+      - Removed all shadow classes (shadow-2xl, group-hover:shadow-[...])
+      - Removed bg-white
+      - Removed inline boxShadow style
+      - Added rounded-lg and overflow-hidden to maintain a clean card shape
+    */}
+    <div
+      className={`relative w-[340px] md:w-[420px] h-[480px] md:h-[600px] ${card.rotation} transition-all duration-500 group-hover:rotate-0 rounded-lg overflow-hidden`}
     >
       <img
         src={card.image}
@@ -35,7 +45,12 @@ const CardItem = memo(({ card, index, isFirst }: { card: Card; index: number; is
         loading="lazy"
         decoding="async"
         draggable="false"
+        onError={(e) => {
+          // Fallback in case an image fails to load
+          (e.target as HTMLImageElement).src = `https://placehold.co/420x600/efefef/333?text=${card.title.replace(' ', '+')}`;
+        }}
       />
+      {/* This gradient remains as it's part of the text overlay, not a "reflection" */}
       <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent p-6 md:p-8 pointer-events-none">
         <h3 className="text-white text-xl md:text-2xl font-light tracking-[0.25em] uppercase text-center">
           {card.title}
@@ -43,13 +58,15 @@ const CardItem = memo(({ card, index, isFirst }: { card: Card; index: number; is
       </div>
     </div>
   </div>
-), (prevProps, nextProps) => 
-  prevProps.card.id === nextProps.card.id && 
+), (prevProps, nextProps) =>
+  // Custom comparison for memo
+  prevProps.card.id === nextProps.card.id &&
   prevProps.index === nextProps.index
 );
 
 CardItem.displayName = 'CardItem';
 
+// --- Main Carousel Component ---
 const JewelryCards = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
@@ -60,58 +77,63 @@ const JewelryCards = () => {
   const startXRef = useRef(0);
   const scrollLeftRef = useRef(0);
 
-  // Memoize duplicated cards
-  const duplicatedCards = useMemo(() => 
+  // Memoize the duplicated card array for performance
+  const duplicatedCards = useMemo(() =>
     Array.from({ length: DUPLICATE_COUNT }, () => CARDS).flat(),
     []
   );
 
-  // Optimized animation loop
+  // Optimized animation loop using requestAnimationFrame
   const animate = useCallback((timestamp: number) => {
-    if (!scrollRef.current || isPaused || isDraggingRef.current) {
+    if (!scrollRef.current) return;
+
+    if (isPaused || isDraggingRef.current) {
+      // If paused or dragging, stop the animation loop but request a new frame
+      // to check again, unless it's fully paused.
       if (!isPaused) {
         animationRef.current = requestAnimationFrame(animate);
       }
+      lastTimestampRef.current = 0; // Reset timestamp
       return;
     }
 
-    const deltaTime = lastTimestampRef.current ? timestamp - lastTimestampRef.current : 16;
+    const deltaTime = lastTimestampRef.current ? timestamp - lastTimestampRef.current : 16.67;
     lastTimestampRef.current = timestamp;
 
-    scrollPositionRef.current += SCROLL_SPEED * (deltaTime / 16);
+    scrollPositionRef.current += SCROLL_SPEED * (deltaTime / 16.67);
 
     const cardSetWidth = scrollRef.current.scrollWidth / DUPLICATE_COUNT;
     
+    // Loop the scroll position
     if (scrollPositionRef.current >= cardSetWidth) {
       scrollPositionRef.current %= cardSetWidth;
     }
     
     scrollRef.current.scrollLeft = scrollPositionRef.current;
     animationRef.current = requestAnimationFrame(animate);
-  }, [isPaused]);
+  }, [isPaused]); // Dependency on isPaused to restart the loop
 
-  // Handlers
+  // Handlers for pausing/resuming animation
   const handlePause = useCallback(() => setIsPaused(true), []);
   const handleResume = useCallback(() => setIsPaused(false), []);
 
-  // Visibility optimization
+  // Effect to pause animation if tab is hidden
   useEffect(() => {
     const handleVisibility = () => {
       if (document.hidden) {
-        setIsPaused(true);
-        lastTimestampRef.current = 0;
+        handlePause();
       } else {
-        setIsPaused(false);
+        handleResume();
       }
     };
-
     document.addEventListener('visibilitychange', handleVisibility);
     return () => document.removeEventListener('visibilitychange', handleVisibility);
-  }, []);
+  }, [handlePause, handleResume]);
 
-  // Animation initialization
+  // Effect to start/stop the animation loop
   useEffect(() => {
     if (!isPaused) {
+      lastTimestampRef.current = 0; // Reset timestamp on resume
       animationRef.current = requestAnimationFrame(animate);
     }
     return () => {
@@ -121,86 +143,103 @@ const JewelryCards = () => {
     };
   }, [animate, isPaused]);
 
-  // Drag functionality with passive listeners
+  // --- IMPROVED DRAG FUNCTIONALITY ---
+  // This effect now uses document-level listeners during the drag
+  // for a smoother, more robust drag-to-scroll experience.
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
 
-    const handleStart = (clientX: number) => {
+    // --- Reusable Drag Handlers ---
+    const onDragStart = (clientX: number) => {
       isDraggingRef.current = true;
       startXRef.current = clientX - container.offsetLeft;
       scrollLeftRef.current = container.scrollLeft;
       container.style.cursor = 'grabbing';
-    };
-
-    const handleMove = (clientX: number) => {
-      if (!isDraggingRef.current) return;
-      const x = clientX - container.offsetLeft;
-      const walk = (x - startXRef.current) * 1.5;
-      const newScrollLeft = scrollLeftRef.current - walk;
-      container.scrollLeft = Math.max(0, newScrollLeft);
+      // We set scrollPositionRef here to sync auto-scroll with drag position
       scrollPositionRef.current = container.scrollLeft;
     };
 
-    const handleEnd = () => {
+    const onDragMove = (clientX: number) => {
+      if (!isDraggingRef.current) return;
+      const x = clientX - container.offsetLeft;
+      const walk = (x - startXRef.current) * 1.5; // Drag sensitivity
+      const newScrollLeft = scrollLeftRef.current - walk;
+      container.scrollLeft = newScrollLeft;
+      scrollPositionRef.current = newScrollLeft; // Keep ref in sync
+    };
+
+    const onDragEnd = () => {
       isDraggingRef.current = false;
       container.style.cursor = 'grab';
     };
 
-    const onMouseDown = (e: MouseEvent) => handleStart(e.pageX);
-    const onMouseMove = (e: MouseEvent) => {
-      if (isDraggingRef.current) {
-        e.preventDefault();
-        e.stopPropagation();
-        handleMove(e.pageX);
-      }
+    // --- Mouse Events ---
+    const onMouseDown = (e: MouseEvent) => {
+      e.preventDefault(); // Prevents text selection during drag
+      onDragStart(e.pageX);
+      document.addEventListener('mousemove', onDocumentMouseMove);
+      document.addEventListener('mouseup', onDocumentMouseUp);
     };
-    const onMouseUp = handleEnd;
-    const onMouseLeave = handleEnd;
 
+    const onDocumentMouseMove = (e: MouseEvent) => {
+      onDragMove(e.pageX);
+    };
+
+    const onDocumentMouseUp = () => {
+      onDragEnd();
+      document.removeEventListener('mousemove', onDocumentMouseMove);
+      document.removeEventListener('mouseup', onDocumentMouseUp);
+    };
+
+    // --- Touch Events ---
     const onTouchStart = (e: TouchEvent) => {
-      handleStart(e.touches[0].clientX);
-      setIsPaused(true);
-    };
-    const onTouchMove = (e: TouchEvent) => {
-      e.preventDefault();
-      handleMove(e.touches[0].clientX);
-    };
-    const onTouchEnd = () => {
-      handleEnd();
-      setIsPaused(false);
+      onDragStart(e.touches[0].clientX);
+      setIsPaused(true); // Pause auto-scroll on touch
+      document.addEventListener('touchmove', onDocumentTouchMove, { passive: false });
+      document.addEventListener('touchend', onDocumentTouchEnd, { passive: true });
     };
 
+    const onDocumentTouchMove = (e: TouchEvent) => {
+      e.preventDefault(); // Prevents page scroll while dragging
+      onDragMove(e.touches[0].clientX);
+    };
+
+    const onDocumentTouchEnd = () => {
+      onDragEnd();
+      setIsPaused(false); // Resume auto-scroll on release
+      document.removeEventListener('touchmove', onDocumentTouchMove);
+      document.removeEventListener('touchend', onDocumentTouchEnd);
+    };
+
+    // --- Add Listeners ---
     container.addEventListener('mousedown', onMouseDown);
-    container.addEventListener('mousemove', onMouseMove);
-    container.addEventListener('mouseup', onMouseUp);
-    container.addEventListener('mouseleave', onMouseLeave);
-    container.addEventListener('touchstart', onTouchStart, { passive: false });
-    container.addEventListener('touchmove', onTouchMove, { passive: false });
-    container.addEventListener('touchend', onTouchEnd, { passive: true });
+    container.addEventListener('touchstart', onTouchStart, { passive: true });
 
+    // --- Cleanup ---
     return () => {
       container.removeEventListener('mousedown', onMouseDown);
-      container.removeEventListener('mousemove', onMouseMove);
-      container.removeEventListener('mouseup', onMouseUp);
-      container.removeEventListener('mouseleave', onMouseLeave);
       container.removeEventListener('touchstart', onTouchStart);
-      container.removeEventListener('touchmove', onTouchMove);
-      container.removeEventListener('touchend', onTouchEnd);
+      // Failsafe cleanup for document listeners
+      document.removeEventListener('mousemove', onDocumentMouseMove);
+      document.removeEventListener('mouseup', onDocumentMouseUp);
+      document.removeEventListener('touchmove', onDocumentTouchMove);
+      document.removeEventListener('touchend', onDocumentTouchEnd);
     };
-  }, []);
+  }, []); // Empty dependency array as all refs and setters are stable
 
   return (
-    <div className="relative w-full min-h-screen py-12 md:py-20 overflow-hidden">
+    // Added a light gray background to the main container
+    <div className="relative w-full min-h-screen py-12 md:py-20 overflow-hidden bg-white">
 
-      <header className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-serif text-amber-800 mb-2">
-            Fashion lovers
-          </h1>
-          <p className="text-base text-slate-500 font-light">
-           jewellery suited for every occasion
-          </p>
-        </header>
+      <header className="text-center mb-12 px-4">
+        <h1 className="text-4xl md:text-5xl font-serif text-amber-800 mb-2">
+          Fashion Lovers
+        </h1>
+        <p className="text-base text-slate-500 font-light">
+          Jewellery suited for every occasion
+        </p>
+      </header>
 
       <div
         ref={scrollRef}
@@ -224,6 +263,7 @@ const JewelryCards = () => {
         ))}
       </div>
 
+      {/* Embedded style tag for scrollbar hiding (cross-browser) */}
       <style>{`
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .will-change-scroll { will-change: scroll-position; }

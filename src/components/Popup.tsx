@@ -56,7 +56,7 @@ const PopupDemo = ({
               
               {/* Placeholder for model image - Replace with your actual image */}
               <img src="/images/just.jpg" alt="Website Logo" />
-              <div className="relative w-64 h-80 bg-gradient-to-br from-rose-200/40 to-pink-200/40 rounded-3xl flex items-center justify-center shadow-xl">
+              {/* <div className="relative w-64 h-80 bg-gradient-to-br from-rose-200/40 to-pink-200/40 rounded-3xl flex items-center justify-center shadow-xl">
                 <div className="text-center p-6">
                   <div className="w-32 h-32 mx-auto bg-white/60 rounded-full flex items-center justify-center mb-4 shadow-lg">
                     <span className="text-5xl">💎</span>
@@ -64,7 +64,7 @@ const PopupDemo = ({
                   <p className="text-rose-700 font-semibold text-lg">Elegant Jewelry</p>
                   <p className="text-rose-600 text-sm mt-2">Collection 2024</p>
                 </div>
-              </div>
+              </div> */}
 
               {/* Decorative sparkles */}
               <div className="absolute -top-4 -right-4 text-yellow-400 text-2xl animate-pulse">✨</div>
@@ -76,7 +76,7 @@ const PopupDemo = ({
           <div className="p-8 flex flex-col justify-center bg-white/50">
             {/* Brand Header */}
             <div className="text-center mb-6">
-              <p className="text-rose-600 font-semibold text-sm tracking-widest mb-1 uppercase">Joyalukkas</p>
+              <p className="text-rose-600 font-semibold text-sm tracking-widest mb-1 uppercase">JEWEL MARKET</p>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-1 tracking-tight">EASY GOLD</h2>
               <p className="text-gray-600 text-sm tracking-wide uppercase">Purchase Scheme</p>
               <div className="w-16 h-1 bg-gradient-to-r from-rose-400 to-pink-400 mx-auto mt-3 rounded-full"></div>
@@ -130,7 +130,7 @@ const PopupDemo = ({
               className="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-semibold py-3.5 px-8 rounded-full transition-all duration-200 hover:shadow-2xl hover:scale-105 flex items-center justify-center gap-2 mb-2 group"
             >
               EXPLORE NOW
-              <span className="text-lg group-hover:translate-x-1 transition-transform duration-200">▶</span>
+              <span className="text-lg group-hover:translate-x-1 transition-transform duration-200"></span>
             </button>
 
             <p className="text-center text-xs text-gray-500 italic">*T&C apply</p>
