@@ -113,7 +113,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <h1 className="text-2xl font-serif text-amber-800">JEWEL MARKET</h1>
+              <h1 className="text-3xl font-serif text-amber-800">JEWEL MARKET</h1>
             </div>
 
             {/* Search Bar - Desktop */}

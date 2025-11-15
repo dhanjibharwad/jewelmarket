@@ -12,6 +12,7 @@ import JewelryShowcase from "@/components/Collection";
 import JewelryCards from "@/components/Bigcard";
 import JewelryCollections from "@/components/Trendingcollection";
 import TestimonialSection from "@/components/testimonial";
+// import Imageslider from "@/components/imageslider";
 
 
 const Home: React.FC = () => {
@@ -32,6 +33,7 @@ const Home: React.FC = () => {
         <JewelryCards/>
         <JewelryCollections/>
         <TestimonialSection/>
+        {/* <Imageslider/> */}
         
     </main>
   );
