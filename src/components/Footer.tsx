@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
           <div className="col-span-1 md:col-span-1">
             <h3 className={titleClasses}>jewelmarket Advantage</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className={linkClasses}>15-day returns</a></li>
+              <li><a href="/shop/product/" className={linkClasses}>15-day returns</a></li>
               <li><a href="#" className={linkClasses}>Free shipping</a></li>
               <li><a href="#" className={linkClasses}>Postcards</a></li>
               <li><a href="#" className={linkClasses}>Gold exchange</a></li>

@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import Gold from "./pages/shop/Gold";
 import Silver from "./pages/shop/Silver";
 import Rings from "./pages/shop/Rings";
+import Productpage from "./pages/shop/Productpage";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/shop/silver" element={<Silver />} />
         <Route path="/shop/rings" element={<Rings />} />
         <Route path="/shop/earrings" element={<Rings />} />
+        <Route path="/shop/product" element={<Productpage />} />
       </Routes>
       <Footer />
     </Router>
