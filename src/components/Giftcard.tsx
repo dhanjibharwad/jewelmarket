@@ -8,7 +8,7 @@ interface GiftingCardProps {
   bgLight: string;
 }
 
-const GiftingCard: React.FC<GiftingCardProps> = ({ title, imageUrl, accentColor, bgLight }) => {
+const GiftingCard: React.FC<GiftingCardProps> = ({ title, imageUrl, bgLight }) => {
   return (
     <div className="relative w-80 h-[450px] group cursor-pointer">
       {/* Main Card */}
