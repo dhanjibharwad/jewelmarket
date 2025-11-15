@@ -7,19 +7,21 @@ import BusinessConsultationSection from "@/components/Bsol";
 import TrustSection from "@/components/Trustsection";
 import JewelryCategories from "@/components/JewelryCategories";
 import GiftingCardsDemo from "@/components/Giftcard";
-import PopupDemo from "@/components/Popup";
+// import PopupDemo from "@/components/Popup";
 import JewelryShowcase from "@/components/Collection";
 import JewelryCards from "@/components/Bigcard";
 import JewelryCollections from "@/components/Trendingcollection";
 import TestimonialSection from "@/components/testimonial";
 // import Imageslider from "@/components/imageslider";
+import ScratchCardPopup from "@/components/Scratchcard";
 
 
 const Home: React.FC = () => {
   return (
     <main className="flex flex-col">
 
-        <PopupDemo/>
+        {/* <PopupDemo/> */}
+        <ScratchCardPopup/>
      
         <HeroCarousel />
         <CategoryGrid />
