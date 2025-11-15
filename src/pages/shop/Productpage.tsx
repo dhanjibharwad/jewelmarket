@@ -92,15 +92,6 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
 };
 
 const FilterSection: React.FC = () => {
-  const [expandedSections, setExpandedSections] = useState({
-    price: true,
-    discounts: true,
-    productType: true,
-  });
-
-  const toggleSection = (section: keyof typeof expandedSections) => {
-    setExpandedSections(prev => ({ ...prev, [section]: !prev[section] }));
-  };
 
   return (
     <div className="w-80 bg-white p-6 border-r border-gray-200 h-screen overflow-y-auto">
