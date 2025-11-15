@@ -150,7 +150,7 @@ const VideoCarousel = () => {
                   className={`absolute transition-all duration-500 ease-out ${style.scale} ${style.translate} ${style.opacity} ${style.zIndex} ${style.blur} ${
                     !isCenter && 'cursor-pointer hover:scale-105'
                   }`}
-                  style={{ width: '350px' }}
+                  style={{ width: '310px' }}
                   onClick={() => !isCenter && goToSlide((currentIndex + idx - 2 + CARDS_DATA.length) % CARDS_DATA.length)}
                 >
                   <div className={`relative ${card.bgColor} backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl`}>
@@ -257,7 +257,7 @@ const VideoCarousel = () => {
               key={index}
               onClick={() => goToSlide(index)}
               className={`h-1.5 rounded-full transition-all ${
-                index === currentIndex ? 'w-6 bg-slate-700' : 'w-1.5 bg-slate-300 hover:bg-slate-400'
+                index === currentIndex ? 'w-6 bg-amber-700' : 'w-1.5 bg-slate-300 hover:bg-slate-400'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
