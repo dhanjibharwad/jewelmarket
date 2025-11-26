@@ -105,14 +105,14 @@ const TestimonialSection = () => {
     <div className="bg-white py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <header className="text-center mb-12">
+        {/* <header className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-serif text-amber-800 mb-2">
             Testimonial
           </h1>
           <p className="text-base text-slate-500 font-light">
             What our customers say
           </p>
-        </header>
+        </header> */}
 
         {/* Testimonials Container */}
         <div className="relative">

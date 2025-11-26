@@ -27,13 +27,14 @@ const Home: React.FC = () => {
         <CategoryGrid />
         <VideoCarousel />
         <JewelAssurance />
+        <JewelryShowcase/>
         <BusinessConsultationSection />
+        <JewelryCollections/>
         <TrustSection />
         <JewelryCategories />
-        <GiftingCardsDemo />
-        <JewelryShowcase/>
+        <GiftingCardsDemo />     
         <JewelryCards/>
-        <JewelryCollections/>
+        
         <TestimonialSection/>
         {/* <Imageslider/> */}
         
