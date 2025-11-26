@@ -17,18 +17,18 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
 
   return (
     <div 
-      className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
+      className="bg-white rounded-md overflow-hidden shadow-sm hover:shadow-md transition-shadow w-full max-w-[200px] mx-auto"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Product Image */}
-      <div className="relative bg-gray-50 h-80 overflow-hidden">
+      <div className="relative bg-gray-50 h-32 sm:h-36 overflow-hidden">
         <button
           onClick={() => setIsFavorite(!isFavorite)}
-          className="absolute top-3 right-3 bg-white rounded-full p-2 hover:bg-gray-50 transition-colors shadow-sm z-10"
+          className="absolute top-1.5 right-1.5 bg-white rounded-full p-1 hover:bg-gray-50 transition-colors shadow-sm z-10"
         >
           <Heart
-            size={18}
+            size={12}
             className={isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-400'}
           />
         </button>
@@ -55,31 +55,31 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
       </div>
 
       {/* Product Title and Price */}
-      <div className="p-4 text-center border-b border-gray-100">
-        <h3 className="text-gray-800 font-semibold text-lg mb-2">{product.name}</h3>
-        <p className="text-sm">
-          <span className="text-amber-800 font-medium">Price</span>{' '}
-          <span className="text-gray-900 font-semibold">$ {product.price.toLocaleString('en-IN')}</span>
+      <div className="p-2 text-center border-b border-gray-100">
+        <h3 className="text-gray-800 font-medium text-sm mb-1 line-clamp-2">{product.name}</h3>
+        <p className="text-xs">
+          <span className="text-amber-800 font-medium">₹</span>
+          <span className="text-gray-900 font-semibold">{product.price.toLocaleString('en-IN')}</span>
         </p>
       </div>
 
       {/* Action Buttons */}
-      <div className="p-4 flex items-center justify-between">
-        <button className="text-amber-800 font-semibold hover:text-amber-800 transition-colors">
+      <div className="p-2 flex flex-col gap-1">
+        <button className="text-amber-800 font-medium text-xs py-1 px-2 border border-amber-800 rounded hover:bg-amber-50 transition-colors">
           Buy Now
         </button>
-        <button className="text-gray-700 font-medium hover:text-gray-900 transition-colors">
-          See More
+        <button className="text-gray-700 font-medium text-xs py-1 px-2 border border-gray-300 rounded hover:bg-gray-50 transition-colors">
+          Details
         </button>
       </div>
 
       {/* Color Options */}
       {product.colors && (
-        <div className="px-4 pb-4 flex gap-2 justify-center">
+        <div className="px-2 pb-2 flex gap-1 justify-center">
           {product.colors.map((color, idx) => (
             <button
               key={idx}
-              className={`w-6 h-6 rounded-full border-2 ${
+              className={`w-4 h-4 rounded-full border ${
                 idx === 0 ? 'border-gray-800' : 'border-gray-300'
               }`}
               style={{ backgroundColor: color }}
@@ -94,7 +94,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
 const FilterSection: React.FC = () => {
 
   return (
-    <div className="w-80 bg-white p-6 border-r border-gray-200 h-screen overflow-y-auto">
+    <div className="w-full lg:w-80 bg-white p-4 lg:p-6 border-b lg:border-r lg:border-b-0 border-gray-200 lg:h-screen overflow-y-auto">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-gray-800 font-semibold flex items-center gap-2">
           FILTERS <span className="bg-gray-200 text-xs px-2 py-0.5 rounded">2</span>
@@ -244,20 +244,22 @@ const JewelryProductPage: React.FC = () => {
   ];
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
-      <FilterSection />
-      
-      <div className="flex-1 p-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-6">
-            <h1 className="text-2xl font-semibold text-gray-900 mb-2">Choker Necklace Sets</h1>
-            <p className="text-gray-600">Showing {products.length} products</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {products.map(product => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+    <div className="min-h-screen bg-gray-50">
+      <div className="flex flex-col lg:flex-row">
+        <FilterSection />
+        
+        <div className="flex-1 p-3 sm:p-4 lg:p-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="mb-4 lg:mb-6 text-center lg:text-left">
+              <h1 className="text-xl lg:text-2xl font-semibold text-gray-900 mb-2">Choker Necklace Sets</h1>
+              <p className="text-gray-600 text-sm lg:text-base">Showing {products.length} products</p>
+            </div>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3 sm:gap-4 justify-items-center">
+              {products.map(product => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
