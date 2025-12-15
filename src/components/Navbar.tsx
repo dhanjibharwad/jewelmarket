@@ -132,6 +132,7 @@ const Navbar = () => {
 
             {/* Right Icons */}
             <div className="hidden md:flex items-center space-x-6">
+              
               <button className="text-gray-700 hover:text-amber-800 transition">
                 <Heart className="h-6 w-6" />
               </button>
@@ -141,7 +142,7 @@ const Navbar = () => {
               <button className="text-gray-700 hover:text-amber-800 transition relative">
                 <ShoppingCart className="h-6 w-6" />
                 <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                  0
+                  4
                 </span>
               </button>
             </div>
