@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Search, ShoppingCart, Heart, User, Menu, X, ChevronDown } from 'lucide-react';
+import { Search, ShoppingCart, Heart, User, Menu, X, ChevronDown } from 'lucide-react'
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -112,9 +112,11 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
+            <a href="/">
             <div className="flex-shrink-0">
               <h1 className="text-3xl font-serif text-amber-800">JEWEL MARKET</h1>
             </div>
+            </a>
 
             {/* Search Bar - Desktop */}
             <div className="hidden md:flex flex-1 max-w-2xl mx-8">

@@ -13,8 +13,8 @@ const ScratchCardPopup: React.FC = () => {
       const canvas = canvasRef.current;
       const ctx = canvas.getContext('2d');
       if (ctx) {
-        canvas.width = 280;
-        canvas.height = 180;
+        canvas.width = 200;
+        canvas.height = 120;
 
         const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
         gradient.addColorStop(0, '#ff6b6b');
@@ -30,26 +30,26 @@ const ScratchCardPopup: React.FC = () => {
         ctx.lineJoin = 'round';
         
         ctx.beginPath();
-        ctx.moveTo(155, 60);
-        ctx.lineTo(135, 90);
-        ctx.lineTo(150, 90);
-        ctx.lineTo(135, 120);
+        ctx.moveTo(110, 40);
+        ctx.lineTo(95, 60);
+        ctx.lineTo(105, 60);
+        ctx.lineTo(95, 80);
         ctx.stroke();
 
         ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
         ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.arc(60, 50, 20, 0, Math.PI * 2);
+        ctx.arc(45, 35, 15, 0, Math.PI * 2);
         ctx.stroke();
         
         ctx.beginPath();
-        ctx.arc(220, 140, 25, 0, Math.PI * 2);
+        ctx.arc(155, 95, 18, 0, Math.PI * 2);
         ctx.stroke();
 
         ctx.fillStyle = '#ffffff';
-        ctx.font = 'bold 16px Arial';
+        ctx.font = 'bold 12px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText('Scratch and Win', canvas.width / 2, 160);
+        ctx.fillText('Scratch and Win', canvas.width / 2, 110);
       }
     }
   }, [isOpen, isScratched]);
@@ -143,28 +143,28 @@ const ScratchCardPopup: React.FC = () => {
       )}
       
       <div className="fixed inset-0 flex items-center justify-center z-40 p-4" style={{ backdropFilter: 'blur(8px)', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
-        <div className="bg-gray-900 rounded-2xl p-8 max-w-md w-full relative shadow-2xl">
+        <div className="bg-gray-900 rounded-xl p-4 max-w-xs w-full relative shadow-2xl">
           <button
             onClick={() => setIsOpen(false)}
-            className="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl w-8 h-8 flex items-center justify-center"
+            className="absolute top-2 right-2 text-gray-400 hover:text-white text-xl w-6 h-6 flex items-center justify-center"
           >
             ×
           </button>
 
           {!isScratched ? (
             <div className="text-center">
-              <div className="mb-6">
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-pink-500 to-orange-500 rounded-full flex items-center justify-center">
-                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <div className="mb-4">
+                <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-pink-500 to-orange-500 rounded-full flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z" />
                   </svg>
                 </div>
-                <h2 className="text-2xl font-bold text-white mb-2">Scratch and Win!</h2>
-                <p className="text-gray-400 mb-6">Scratch the card below to reveal your exclusive discount</p>
+                <h2 className="text-xl font-bold text-white mb-2">Scratch and Win!</h2>
+                <p className="text-gray-400 mb-4 text-sm">Scratch the card below to reveal your exclusive discount</p>
               </div>
 
               <div className="relative inline-block">
-                <div className="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold pointer-events-none bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl" style={{ width: '280px', height: '180px' }}>
+                <div className="absolute inset-0 flex items-center justify-center text-white text-2xl font-bold pointer-events-none bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg" style={{ width: '200px', height: '120px' }}>
                   3% OFF
                 </div>
                 <canvas
@@ -181,28 +181,28 @@ const ScratchCardPopup: React.FC = () => {
                 />
               </div>
 
-              <p className="text-gray-500 text-sm mt-4">Use your mouse or finger to scratch</p>
+              <p className="text-gray-500 text-xs mt-3">Use your mouse or finger to scratch</p>
             </div>
           ) : (
             <div className="text-center">
-              <div className="mb-6">
-                <div className="text-6xl mb-4">🎉</div>
-                <h2 className="text-3xl font-bold mb-2">
+              <div className="mb-4">
+                <div className="text-4xl mb-3">🎉</div>
+                <h2 className="text-xl font-bold mb-2">
                   <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 text-transparent bg-clip-text">
                     Congratulations!
                   </span>
                 </h2>
-                <p className="text-xl text-white mb-2">
+                <p className="text-lg text-white mb-2">
                   You have won <span className="font-bold text-pink-400">3% discount</span>
                 </p>
-                <p className="text-gray-400 text-sm mb-6">Enter your number to reveal discount code</p>
+                <p className="text-gray-400 text-sm mb-4">Enter your number to reveal discount code</p>
               </div>
 
               <div className="space-y-4">
-                <div className="flex items-center bg-gray-800 rounded-lg px-4 py-3 border border-gray-700 focus-within:border-pink-500 transition-colors">
-                  <div className="flex items-center mr-3">
-                    <span className="text-2xl mr-2">🇮🇳</span>
-                    <span className="text-white font-medium">+91</span>
+                <div className="flex items-center bg-gray-800 rounded-lg px-3 py-2 border border-gray-700 focus-within:border-pink-500 transition-colors">
+                  <div className="flex items-center mr-2">
+                    <span className="text-lg mr-1">🇮🇳</span>
+                    <span className="text-white font-medium text-sm">+91</span>
                   </div>
                   <input
                     type="tel"
@@ -210,14 +210,14 @@ const ScratchCardPopup: React.FC = () => {
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value.replace(/\D/g, ''))}
                     placeholder="Phone Number"
-                    className="bg-transparent text-white flex-1 outline-none placeholder-gray-500"
+                    className="bg-transparent text-white flex-1 outline-none placeholder-gray-500 text-sm"
                   />
                 </div>
 
                 <button
                   onClick={handleSubmit}
                   disabled={phoneNumber.length !== 10}
-                  className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-2 rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm"
                 >
                   <span>⚡</span>
                   Submit
