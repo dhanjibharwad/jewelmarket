@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Heart, ChevronDown } from 'lucide-react';
+import { Heart, ChevronDown, Search } from 'lucide-react';
 
 interface Product {
   id: number;
@@ -16,19 +16,19 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div 
-      className="bg-white rounded-md overflow-hidden shadow-sm hover:shadow-md transition-shadow w-full max-w-[200px] mx-auto"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Product Image */}
-      <div className="relative bg-gray-50 h-32 sm:h-36 overflow-hidden">
+    <div className="group relative flex flex-col w-full">
+      {/* Main Image Container */}
+      <div 
+        className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-gray-100"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <button
           onClick={() => setIsFavorite(!isFavorite)}
-          className="absolute top-1.5 right-1.5 bg-white rounded-full p-1 hover:bg-gray-50 transition-colors shadow-sm z-10"
+          className="absolute top-3 right-3 bg-white rounded-full p-2 hover:bg-gray-50 transition-colors shadow-sm z-10"
         >
           <Heart
-            size={12}
+            size={16}
             className={isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-400'}
           />
         </button>
@@ -37,8 +37,8 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
         <img
           src={product.image}
           alt={product.name}
-          className={`w-full h-full object-cover cursor-pointer absolute inset-0 transition-transform duration-500 ease-in-out ${
-            isHovered ? '-translate-x-full' : 'translate-x-0'
+          className={`h-full w-full object-cover transition-all duration-500 ${
+            isHovered ? 'scale-105 opacity-0' : 'scale-100 opacity-100'
           }`}
         />
         
@@ -47,46 +47,42 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
           <img
             src={product.hoverImage}
             alt={`${product.name} alternate view`}
-            className={`w-full h-full object-cover cursor-pointer absolute inset-0 transition-transform duration-500 ease-in-out ${
-              isHovered ? 'translate-x-0' : 'translate-x-full'
+            className={`absolute inset-0 h-full w-full object-cover transition-all duration-500 ${
+              isHovered ? 'scale-105 opacity-100' : 'scale-100 opacity-0'
             }`}
           />
         )}
       </div>
 
-      {/* Product Title and Price */}
-      <div className="p-2 text-center border-b border-gray-100">
-        <h3 className="text-gray-800 font-medium text-sm mb-1 line-clamp-2">{product.name}</h3>
-        <p className="text-xs">
-          <span className="text-amber-800 font-medium">₹</span>
-          <span className="text-gray-900 font-semibold">{product.price.toLocaleString('en-IN')}</span>
-        </p>
-      </div>
-
-      {/* Action Buttons */}
-      <div className="p-2 flex flex-col gap-1">
-        <button className="text-amber-800 font-medium text-xs py-1 px-2 border border-amber-800 rounded hover:bg-amber-50 transition-colors">
-          Buy Now
-        </button>
-        <button className="text-gray-700 font-medium text-xs py-1 px-2 border border-gray-300 rounded hover:bg-gray-50 transition-colors">
-          Details
-        </button>
-      </div>
-
-      {/* Color Options */}
-      {product.colors && (
-        <div className="px-2 pb-2 flex gap-1 justify-center">
-          {product.colors.map((color, idx) => (
-            <button
-              key={idx}
-              className={`w-4 h-4 rounded-full border ${
-                idx === 0 ? 'border-gray-800' : 'border-gray-300'
-              }`}
-              style={{ backgroundColor: color }}
-            />
-          ))}
+      {/* Product Info Container */}
+      <div className="mt-3 flex items-center gap-2 px-1">
+        {/* Thumbnail */}
+        <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-gray-100 transition-shadow group-hover:shadow-md">
+          <img
+            src={product.image}
+            alt={`${product.name} thumbnail`}
+            className="h-full w-full object-cover"
+          />
         </div>
-      )}
+
+        {/* Title and Price */}
+        <div className="flex flex-1 flex-col gap-1">
+          <h3 className="text-sm font-semibold leading-tight text-gray-900 line-clamp-2 transition-colors group-hover:text-gray-700">
+            {product.name}
+          </h3>
+          <p className="text-lg font-bold text-gray-900">
+            ₹{product.price.toLocaleString('en-IN')}
+          </p>
+        </div>
+
+        {/* Buy Now Button */}
+        <button
+          className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-amber-800 text-white shadow-lg transition-all hover:scale-105 hover:bg-black hover:shadow-xl active:scale-95"
+          aria-label="Buy Now"
+        >
+          <Search className="h-4.5 w-4.5" strokeWidth={2.5} />
+        </button>
+      </div>
     </div>
   );
 };
@@ -94,7 +90,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
 const FilterSection: React.FC = () => {
 
   return (
-    <div className="w-full lg:w-80 bg-white p-4 lg:p-6 border-b lg:border-r lg:border-b-0 border-gray-200 lg:h-screen overflow-y-auto">
+    <div className="w-full lg:w-80 bg-white p-4 lg:p-6 border-b lg:border-r lg:border-b-0 border-gray-200 lg:sticky lg:top-0 lg:h-screen overflow-y-auto">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-gray-800 font-semibold flex items-center gap-2">
           FILTERS <span className="bg-gray-200 text-xs px-2 py-0.5 rounded">2</span>
@@ -249,13 +245,13 @@ const JewelryProductPage: React.FC = () => {
         <FilterSection />
         
         <div className="flex-1 p-3 sm:p-4 lg:p-6">
-          <div className="max-w-6xl mx-auto">
+          <div className="w-full">
             <div className="mb-4 lg:mb-6 text-center lg:text-left">
               <h1 className="text-xl lg:text-2xl font-semibold text-gray-900 mb-2">Choker Necklace Sets</h1>
               <p className="text-gray-600 text-sm lg:text-base">Showing {products.length} products</p>
             </div>
             
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3 sm:gap-4 justify-items-center">
+            <div className="grid grid-cols-4 gap-4">
               {products.map(product => (
                 <ProductCard key={product.id} product={product} />
               ))}
