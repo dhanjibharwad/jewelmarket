@@ -34,74 +34,74 @@ const Navbar = () => {
   // CHANGED: Created separate category arrays for each menu item
   const dropdownCategories: { [key: string]: Array<{ name: string; img: string }> } = {
     'All Jewellery': [
-      { name: 'Necklaces Sets', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=200&h=200&fit=crop' },
-      { name: 'Choker Sets', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=200&h=200&fit=crop' },
-      { name: 'Earrings', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=200&h=200&fit=crop' },
-      { name: 'Bangles & Bracelets', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=200&h=200&fit=crop' },
-      { name: 'Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&h=200&fit=crop' },
-      { name: 'Pendant Sets', img: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=200&fit=crop' },
-      { name: 'Waistbands', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=200&h=200&fit=crop' },
-      { name: 'Anklets', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=200&h=200&fit=crop' },
+      { name: 'Necklaces Sets', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&h=800&fit=crop&q=95' },
+      { name: 'Choker Sets', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=800&fit=crop&q=95' },
+      { name: 'Earrings', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&h=800&fit=crop&q=95' },
+      { name: 'Bangles & Bracelets', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=800&fit=crop&q=95' },
+      { name: 'Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop&q=95' },
+      { name: 'Pendant Sets', img: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop&q=95' },
+      { name: 'Waistbands', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&h=800&fit=crop&q=95' },
+      { name: 'Anklets', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=800&fit=crop&q=95' },
     ],
     'Gold': [
       { name: 'Gold Necklaces', img: '/images/jewell.jpg' },
-      { name: 'Gold Chains', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=200&h=200&fit=crop' },
-      { name: 'Gold Earrings', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=200&h=200&fit=crop' },
-      { name: 'Gold Bangles', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=200&h=200&fit=crop' },
-      { name: 'Gold Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&h=200&fit=crop' },
-      { name: 'Gold Pendants', img: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=200&fit=crop' },
-      { name: 'Gold Coins', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=200&h=200&fit=crop' },
-      { name: 'Temple Jewellery', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=200&h=200&fit=crop' },
+      { name: 'Gold Chains', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=800&fit=crop&q=95' },
+      { name: 'Gold Earrings', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&h=800&fit=crop&q=95' },
+      { name: 'Gold Bangles', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=800&fit=crop&q=95' },
+      { name: 'Gold Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop&q=95' },
+      { name: 'Gold Pendants', img: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop&q=95' },
+      { name: 'Gold Coins', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&h=800&fit=crop&q=95' },
+      { name: 'Temple Jewellery', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=800&fit=crop&q=95' },
     ],
     'Diamond': [
-      { name: 'Diamond Necklaces', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=200&h=200&fit=crop' },
-      { name: 'Diamond Earrings', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=200&h=200&fit=crop' },
-      { name: 'Diamond Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&h=200&fit=crop' },
-      { name: 'Diamond Bangles', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=200&h=200&fit=crop' },
-      { name: 'Diamond Pendants', img: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=200&fit=crop' },
-      { name: 'Solitaire Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&h=200&fit=crop' },
-      { name: 'Diamond Mangalsutras', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=200&h=200&fit=crop' },
-      { name: 'Diamond Nose Pins', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=200&h=200&fit=crop' },
+      { name: 'Diamond Necklaces', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&h=800&fit=crop&q=95' },
+      { name: 'Diamond Earrings', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&h=800&fit=crop&q=95' },
+      { name: 'Diamond Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop&q=95' },
+      { name: 'Diamond Bangles', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=800&fit=crop&q=95' },
+      { name: 'Diamond Pendants', img: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop&q=95' },
+      { name: 'Solitaire Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop&q=95' },
+      { name: 'Diamond Mangalsutras', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&h=800&fit=crop&q=95' },
+      { name: 'Diamond Nose Pins', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=800&fit=crop&q=95' },
     ],
     'Earrings': [
-      { name: 'Studs', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=200&h=200&fit=crop' },
-      { name: 'Drop Earrings', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=200&h=200&fit=crop' },
-      { name: 'Hoops', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=200&h=200&fit=crop' },
-      { name: 'Jhumkas', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=200&h=200&fit=crop' },
-      { name: 'Chandbali', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=200&h=200&fit=crop' },
-      { name: 'Sui Dhaga', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=200&h=200&fit=crop' },
-      { name: 'Ear Cuffs', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=200&h=200&fit=crop' },
-      { name: 'Balis', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=200&h=200&fit=crop' },
+      { name: 'Studs', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&h=800&fit=crop&q=95' },
+      { name: 'Drop Earrings', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&h=800&fit=crop&q=95' },
+      { name: 'Hoops', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&h=800&fit=crop&q=95' },
+      { name: 'Jhumkas', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&h=800&fit=crop&q=95' },
+      { name: 'Chandbali', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&h=800&fit=crop&q=95' },
+      { name: 'Sui Dhaga', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&h=800&fit=crop&q=95' },
+      { name: 'Ear Cuffs', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&h=800&fit=crop&q=95' },
+      { name: 'Balis', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&h=800&fit=crop&q=95' },
     ],
     'Rings': [
-      { name: 'Engagement Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&h=200&fit=crop' },
-      { name: 'Couple Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&h=200&fit=crop' },
-      { name: 'Solitaire Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&h=200&fit=crop' },
-      { name: 'Gold Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&h=200&fit=crop' },
-      { name: 'Diamond Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&h=200&fit=crop' },
-      { name: 'Cocktail Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&h=200&fit=crop' },
-      { name: 'Band Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&h=200&fit=crop' },
-      { name: 'Adjustable Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&h=200&fit=crop' },
+      { name: 'Engagement Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop&q=95' },
+      { name: 'Couple Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop&q=95' },
+      { name: 'Solitaire Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop&q=95' },
+      { name: 'Gold Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop&q=95' },
+      { name: 'Diamond Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop&q=95' },
+      { name: 'Cocktail Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop&q=95' },
+      { name: 'Band Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop&q=95' },
+      { name: 'Adjustable Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop&q=95' },
     ],
     'Collections': [
-      { name: 'Rivaah Collection', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=200&h=200&fit=crop' },
-      { name: 'Virasat Collection', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=200&h=200&fit=crop' },
-      { name: 'Mia Collection', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=200&h=200&fit=crop' },
-      { name: 'Mangalsutra', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=200&h=200&fit=crop' },
-      { name: 'Festive Collection', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=200&h=200&fit=crop' },
-      { name: 'Designer Collection', img: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=200&fit=crop' },
-      { name: 'Dhanteras Special', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=200&h=200&fit=crop' },
-      { name: 'New Arrivals', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=200&h=200&fit=crop' },
+      { name: 'Rivaah Collection', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&h=800&fit=crop&q=95' },
+      { name: 'Virasat Collection', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=800&fit=crop&q=95' },
+      { name: 'Mia Collection', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&h=800&fit=crop&q=95' },
+      { name: 'Mangalsutra', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&h=800&fit=crop&q=95' },
+      { name: 'Festive Collection', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=800&fit=crop&q=95' },
+      { name: 'Designer Collection', img: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop&q=95' },
+      { name: 'Dhanteras Special', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&h=800&fit=crop&q=95' },
+      { name: 'New Arrivals', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=800&fit=crop&q=95' },
     ],
     'Wedding': [
-      { name: 'Bridal Necklaces', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=200&h=200&fit=crop' },
-      { name: 'Bridal Earrings', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=200&h=200&fit=crop' },
-      { name: 'Bridal Sets', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=200&h=200&fit=crop' },
-      { name: 'Mangalsutra', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=200&h=200&fit=crop' },
-      { name: 'Bridal Bangles', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=200&h=200&fit=crop' },
-      { name: 'Maang Tikka', img: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=200&fit=crop' },
-      { name: 'Bridal Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&h=200&fit=crop' },
-      { name: 'Wedding Bands', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&h=200&fit=crop' },
+      { name: 'Bridal Necklaces', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&h=800&fit=crop&q=95' },
+      { name: 'Bridal Earrings', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&h=800&fit=crop&q=95' },
+      { name: 'Bridal Sets', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=800&fit=crop&q=95' },
+      { name: 'Mangalsutra', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&h=800&fit=crop&q=95' },
+      { name: 'Bridal Bangles', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=800&fit=crop&q=95' },
+      { name: 'Maang Tikka', img: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop&q=95' },
+      { name: 'Bridal Rings', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop&q=95' },
+      { name: 'Wedding Bands', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop&q=95' },
     ],
   };
 
@@ -189,19 +189,19 @@ const Navbar = () => {
             onMouseEnter={() => handleMouseEnter(activeDropdown)}
             onMouseLeave={handleMouseLeave}
           >
-            <div className="max-w-7xl mx-auto px-8 py-10">
-              <div className="grid grid-cols-4 gap-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3 sm:gap-4">
                 {/* CHANGED: Now maps through category-specific items */}
                 {dropdownCategories[activeDropdown].map((category) => (
                   <div key={category.name} className="text-center group cursor-pointer">
-                    <div className="bg-white rounded-xl overflow-hidden mb-3 shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div className="bg-white rounded-lg overflow-hidden mb-2 shadow-sm hover:shadow-md transition-shadow duration-300">
                       <img
                         src={category.img}
                         alt={category.name}
-                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-20 sm:h-24 md:h-28 object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
-                    <p className="text-sm font-medium text-gray-800 group-hover:text-amber-700 transition">
+                    <p className="text-xs sm:text-sm font-medium text-gray-800 group-hover:text-amber-700 transition leading-tight">
                       {category.name}
                     </p>
                   </div>

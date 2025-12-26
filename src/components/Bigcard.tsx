@@ -36,7 +36,7 @@ const CardItem = memo(({ card, index, isFirst }: { card: Card; index: number; is
       - Added rounded-lg and overflow-hidden to maintain a clean card shape
     */}
     <div
-      className={`relative w-[340px] md:w-[420px] h-[480px] md:h-[600px] ${card.rotation} transition-all duration-500 group-hover:rotate-0 rounded-lg overflow-hidden`}
+      className={`relative w-[300px] md:w-[380px] h-[420px] md:h-[540px] ${card.rotation} transition-all duration-500 group-hover:rotate-0 rounded-lg overflow-hidden`}
     >
       <img
         src={card.image}
